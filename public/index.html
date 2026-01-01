@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECHO CARE</title>
+        <link rel="stylesheet" href="first.css">
+    
+    <body>
+
+
+
+
+        <div class="pa">                                                                                  <!----css---1--->
+        <video class="pa-video" autoplay muted loop playsinline>                                          <!----css---2--->
+        <source src="27019-361107952.mp4" type="video/mp4">
+        </video>
+        <div class="pa-text">
+        <h1>ECHO CARE</h1>                                                                                <!----css---3--->
+        <p><strong>When sound meets care, it becomes therapy.</strong></p>
+        </div>                                                 <!----css---4--->
+        </div>
+
+
+
+        <div class="panel">                                                                               <!----css---5--->
+        <div class="button-group">                                                                        <!----css---6--->
+        <button class="btn" onmouseover="showMainpanel('Specialist')">SPECIALIST</button>
+        <button class="btn" onmouseover="showMainpanel('Therapist')">THERAPIST</button>
+        </div>
+        <div class="panelA">
+        <h2><strong>Hearing Aids</strong>  don't just amplify sound - they Amplify Life</h2>
+        <p><strong>Hearing aids are not a sign of weakness - they're a symbol of strength and self care</strong></p>
+        </div>
+        </div>
+
+
+
+
+    <div id="Specialist-panel" class="hidden-panel">
+    <button class="close-btn" onclick="closepanel()">X</button>
+    <h2>Specialist</h2>
+
+            <div class= "specialist-option">
+                <button class="btn1" onmouseover="showSubpanel('Audiologist')">Audiologist</button>
+                <button class="btn1" onmouseover="showSubpanel('Pathologist')">Speech & language Pathalogist</button>
+            </div>
+            </div>
+
+
+
+
+
+             <div id="Audiologist-panel" class="hidden-panel">
+                <button class="close-btn" onclick="closepanel()">x</button>
+                <h3>Audiologist</h3>
+                <h4>Book Appointment</h4>
+
+                <form action="/save-excel" method="post">
+                <input type="hidden" name="department" value="Audiologist">
+                <p>
+                    <label>Patient Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="Name" required></label>
+                </p>
+                <p>
+                    <label>Phone Number :&nbsp;&nbsp;<input type="text" name="phonenum" id="phonenum" required pattern="^\d{10}$" title="phone number of form (xxx) xxx-xxxx required."></label>
+                </p>
+                <p class="age-input">
+                    <label>Age :&nbsp;&nbsp;<input type="text" name="age" id="Age" required></label>
+                </p>
+                <p class="gen">
+                    <label>Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" list="gender"></label>
+                </p>
+                <datalist id="Gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </datalist>
+                <p class="addr"><label>address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="Address" required></label></p>
+                <p class="compl"><label>complain :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="complain" id="Complain" optional></label></p>
+                <p class="buttons">
+                    <button type="submit">submit</button>
+                    <button type="reset">Cancel</button>
+                </p>
+                <button type="submit">Submit</button>
+                </form>
+            </div>
+
+
+
+
+            <div id="Pathologist-panel" class="hidden-panel">
+                <button class="close-btn" onclick="closepanel()">x</button>
+                <h3>Speech and Language Pathologist</h3>
+                <h4>Book Appointment</h4>
+                <form action="/save-excel" method="POST">
+                    <input type="hidden" name="department" value="Speech and Language Pathologist">
+                <p><label>Patient Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="Name" required></label></p>
+                <p><label>Phone Number :&nbsp;&nbsp;<input type="text" name="phonenum" id="phonenum" required pattern="^\d{10}$" title="phone number of form (xxx) xxx-xxxx required."></label></p>
+                <p class="age"><label>Age :&nbsp;&nbsp;<input type="text" name="age" id="age" required></label></p>
+                <p class="gen-input"><label>Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" list="gender"></label></p>
+                <datalist id="Gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </datalist>
+                <p class="addr-input"><label>Adderess :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="Address" required></label></p>
+                <p class="compl-input"><label>Complain :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="complain" id="Complain" optional></label></p>
+                <p class="buttons-input">
+                    <button type="submit">submit</button>
+                    <button type="reset">Cancel</button>
+                </p>
+                <button type="submit">Submit</button>
+                </form>
+            </div>
+
+
+
+
+
+            <div id="Therapist-panel" class="hidden-panel">
+            <button class="close-btn" onmouseover="closepanel()">X</button>
+            <h2>THERAPIST PANEL</h2>
+
+            <div id="Therapist-option">
+                <button class="btn2" onmouseover="showSubpanel('Therapist-sub')">Occupational Therapy</button>
+            </div>
+            <p>THIS PANEL CONTAINS INFORMATION ABOUT THERAPIST.</p>
+            </div>
+
+
+
+
+
+
+            <div id="Therapist-sub-panel" class="hidden-panel">
+            <h3>Occupational Therapy</h3>
+            <h4>Book Appointment</h4>
+            <form action="/save-excel" method="POST">
+                <input type="hidden" name="department" value="Occupational Therapy">
+                <p><label>Patient Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="Name" required></label></p>
+                <p><label>Phone Number :&nbsp;&nbsp;<input type="text" name="phonenum" id="phonenum" required pattern="^\d{10}$" title="phone number of form (xxx) xxx-xxxx required."></label></p>
+                <p class="age-in"><label>Age :&nbsp;&nbsp;<input type="text" name="age" id="age" required></label></p>
+                <p class="gen-in"><label>Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" list="gender"></label></p>
+                <datalist id="Gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </datalist>
+                <p class="addr1"><label>Adderess :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="Address" required></label></p>
+                <p class="comple"><label>Complain :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="complain" id="Complain" optional></label></p>
+                <p class="buttons-in">
+                    <button type="submit">submit</button>
+                    <button type="reset">Cancel</button>
+                </p>
+                <button type="submit">Submit</button>
+                </form>
+            <button onclick="closepanel()">close</button>
+            </div>
+
+
+
+
+
+        <script src="script.js"></script>
+
+
+
+
+        <div class="panel2">
+            <h2>Audiologist Specialist</h2>
+            <ul>
+            <li>Conduct <strong> hearing Tests </strong> AND <strong>Assessments.</strong> </li>
+            <li><strong>Diagnose Type</strong> AND <strong>Levels Of Hearing Loss.</strong></li>
+            <li><strong>Prescribe</strong> AND <strong>Fit Hearing Aids. </strong></li>
+            <li><strong>Manage Tinnitus</strong> AND <strong> Related Conditions.</strong></li>
+            <li><strong>Offer Follow-up</strong> AND <strong> Hearing aid Support. </strong></li>
+            </ul>
+        </div>
+
+
+
+
+
+        <div class="panel3">
+             <h2>Speech / Language Pathologist</h2>
+              <img src="Speech.jpg" alt="img1">
+             <ul>
+                <li>Speech Language Assessment.</li>
+                <li>Individual Therapy Plans.</li>
+                <li>Articulation Therapy.</li>
+                <li>Fluency Therapy.</li>
+                <li>Voice Therapy.</li>
+                <li><b><abbr title=" AND Alternative Communication">AAC</abbr></b></li>
+                <li>Parents Counseling AND Home Practice Tips.</li>
+             </ul>
+        </div>
+
+
+
+
+
+        <div class="panel4">
+            <h3>Occupational Therapist </h3>
+            <img src="hand-drawn-flat-design-occupational-therapy-logo_23-2149379154.avif" alt="img3">
+            <ul>
+            <li>Counseling</li>
+            <li>Manual Therapy</li>
+            <li>Cognitive Therapy</li>
+            <li>Behavioral Therapy</li>
+            <li>Supportive Therapy</li>
+            <li>Group Therapy</li>
+            <li>Art Therapy</li>
+            <li>Speech Therapy</li>
+            <li>Occupational Therapy</li>
+            </ul>
+        </div>
+    </body>
+</html>
