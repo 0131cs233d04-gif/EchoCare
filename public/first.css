@@ -174,7 +174,13 @@ input[type="text"] {
   }
 
   .panel {
-    position: static;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    background: rgba(61, 226, 220, 0.7);
+    z-index: 2000;
   }
 
   .button-group {
@@ -235,6 +241,7 @@ input[type="text"] {
   }
 
 }
+
 
 
 
