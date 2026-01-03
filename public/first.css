@@ -57,6 +57,9 @@ html, body {
   background: rgba(61, 226, 220, 0.7);
   z-index: 1000;
 }
+body{
+padding-top: 120px;
+}
 
 .button-group {
   display: flex;
@@ -241,6 +244,7 @@ input[type="text"] {
   }
 
 }
+
 
 
 
