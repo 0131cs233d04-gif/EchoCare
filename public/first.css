@@ -632,37 +632,52 @@ html, body{
 }
 
 /* ===== MOBILE FIX ===== */
+/* ===== MOBILE FIX (FINAL & SAFE) ===== */
 @media (max-width: 768px) {
 
   body {
     overflow-x: hidden;
   }
 
-  .pa-video {
+  /* 🔹 HERO SECTION */
+  .pa {
     width: 100%;
     height: auto;
-    object-fit: cover;
   }
 
-  .pa-text h1 {
-    font-size: 36px;
-    margin: 20px 0;
+  .pa-video {
+    display: none;   /* mobile par video hatao */
+  }
+
+  .pa-text {
+    position: static;
+    margin: 20px auto;
     text-align: center;
   }
 
-  .panel,
-  .panel2,
-  .panel3,
-  .panel4 {
-    position: static;
-    width: 95%;
-    margin: 15px auto;
+  .pa h1 {
+    font-size: 34px;
+    line-height: normal;
+    margin: 10px 0;
   }
 
-  .button-group {
-    display: flex;
+  .pa p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  /* 🔹 BOTTOM PANEL */
+  .panel {
+    position: static;
+    height: auto;
+    width: 100%;
+  }
+
+  .panel .button-group {
+    position: static;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    margin: 10px auto;
   }
 
   .btn,
@@ -672,21 +687,49 @@ html, body{
     font-size: 16px;
   }
 
-  .hidden-panel {
+  /* 🔹 POPUP PANELS (FORMS) */
+  #Audiologist-panel,
+  #Pathologist-panel,
+  #Therapist-sub-panel {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow-y: auto;
+    margin: 0;
+  }
+
+  input[type=text] {
+    width: 100%;
+  }
+
+  /* 🔹 CONTENT SECTIONS */
+  .panel2,
+  .panel3,
+  .panel4 {
+    height: auto;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .panel2 h2,
+  .panel3 h2,
+  .panel4 h3 {
+    font-size: 26px;
+    text-align: center;
   }
 
   img {
     max-width: 100%;
     height: auto;
+    margin: 20px auto;
+    display: block;
   }
-
 }
+
+
+
 
 
 
