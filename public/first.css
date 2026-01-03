@@ -227,7 +227,7 @@ input[type="text"] {
   }
 
   .pa-video {
-    display: block;
+    object-fit: contains;
     position: fixed;
     inset: 0;
     width: 100vw;
@@ -244,6 +244,7 @@ input[type="text"] {
   }
 
 }
+
 
 
 
