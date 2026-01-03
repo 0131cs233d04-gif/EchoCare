@@ -23,7 +23,7 @@ app.post("/save-excel", async (req, res) => {
   } = req.body;
 
   try {
-    await fetch("PASTE_GOOGLE_SCRIPT_URL_HERE", {
+    await fetch("https://script.google.com/a/macros/jnctbhopal.ac.in/s/AKfycbzwUqWaG1VJB8bodrrIMF-eLzg38KWUd5Dg5_0lnIM/dev", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -50,3 +50,4 @@ app.post("/save-excel", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
