@@ -1,6 +1,6 @@
 const express = require("express");
-const ExcelJS = require("exceljs");
-const path = require("path");
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 const app = express();
 const PORT = 3000;
@@ -9,62 +9,44 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+/* ===== FORM DATA → GOOGLE SHEET ===== */
 app.post("/save-excel", async (req, res) => {
 
-    console.log("REQ BODY 👉", req.body);
+  const {
+    name,
+    phonenum,
+    age,
+    gender,
+    address,
+    complain,
+    department
+  } = req.body;
 
-    const {
+  try {
+    await fetch("PASTE_GOOGLE_SCRIPT_URL_HERE", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
         name,
-        phonenum,
+        phone: phonenum,
         age,
         gender,
         address,
         complain,
         department
-    } = req.body;
+      })
+    });
 
-    const workbook = new ExcelJS.Workbook();
-    const filePath = path.join(__dirname, "appointments.xlsx");
+    res.send("✅ Data Google Sheet me save ho gaya");
 
-    try {
-        let sheet;
-
-        try {
-            await workbook.xlsx.readFile(filePath);
-            sheet = workbook.getWorksheet("Appointments");
-        } catch {
-            sheet = workbook.addWorksheet("Appointments");
-            sheet.columns = [
-                { header: "Department", key: "department" },
-                { header: "Name", key: "name" },
-                { header: "Phone", key: "phonenum" },
-                { header: "Age", key: "age" },
-                { header: "Gender", key: "gender" },
-                { header: "Address", key: "address" },
-                { header: "Complain", key: "complain" }
-            ];
-        }
-
-        sheet.addRow([
-            department,
-            name,
-            phonenum,
-            age,
-            gender,
-            address,
-            complain
-        ]);
-
-        await workbook.xlsx.writeFile(filePath);
-
-        res.send("✅ Data Excel me save ho gaya");
-
-    } catch (err) {
-        console.error(err);
-        res.status(500).send("❌ Error saving data");
-    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("❌ Google Sheet error");
+  }
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
