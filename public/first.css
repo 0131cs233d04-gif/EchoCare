@@ -79,19 +79,22 @@ html, body {
 #Pathologist-panel,
 #Therapist-sub-panel {
   position: fixed;
-  top: 10%;
+  top: 8%;
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
-  height: auto;
   max-height: 80vh;
   overflow-y: auto;
   display: none;
-  padding: 20px;
-  background: rgba(28, 6, 95, 0.85);
+  padding: 25px;
+
+  /* 🔥 IMPORTANT */
+  background: rgba(28, 6, 95, 0.95);
+  backdrop-filter: blur(6px);
+
   color: #fff;
   border-radius: 20px;
-  z-index: 2000;
+  z-index: 9999;   /* ⬅️ video se hamesha upar */
 }
 
 .close-btn {
@@ -232,4 +235,5 @@ input[type="text"] {
   }
 
 }
+
 
