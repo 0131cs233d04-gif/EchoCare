@@ -631,4 +631,64 @@ html, body{
      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .pa-video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .pa-text h1 {
+    font-size: 36px;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .panel,
+  .panel2,
+  .panel3,
+  .panel4 {
+    position: static;
+    width: 95%;
+    margin: 15px auto;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn,
+  .btn1,
+  .btn2 {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .hidden-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
+
+
+
+
 
