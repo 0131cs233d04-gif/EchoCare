@@ -160,9 +160,9 @@ input[type="text"] {
     height: auto;
   }
 
-  .pa-video {
+  /*.pa-video {
     display: none;
-  }
+  }*/
 
   .pa-text {
     position: static;
@@ -208,3 +208,28 @@ input[type="text"] {
     width: 120px;
   }
 }
+@media (max-width: 768px) {
+
+  .pa {
+    height: 100vh;
+  }
+
+  .pa-video {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .pa-text {
+    position: relative;
+    margin-top: 20vh;
+    text-align: center;
+    z-index: 5;
+  }
+
+}
+
