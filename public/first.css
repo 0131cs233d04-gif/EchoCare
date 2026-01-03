@@ -14,7 +14,7 @@ html, body{
    
 }
 .pa-video {    /*--------2----video ka size ---*/
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
@@ -37,12 +37,13 @@ html, body{
 .pa h1{     /*--------3--phala heading---*/
     text-align:center;
     margin-top: 200px;
-    margin-left: 1140px;
+    margin-left: auto;
+    margin-right: 10vw;
     z-index: 9;
     color: rgb(2, 6, 55);
-    font-size: 75pt;
+    font-size: clamp(32px, 8vw, 75px);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 350px;
+    line-height: normal;
     font-style:italic;
     max-width: 120%;
     font-weight: bold;
@@ -54,7 +55,8 @@ html, body{
     font-size: 26px;
     font-style: italic;
     margin-top: -160px;
-    margin-left: 1170px;
+    margin-left: auto;
+    margin-right: 10vw;
     z-index: 9;
 }
 .panel{
@@ -175,13 +177,14 @@ html, body{
 #Audiologist-panel {
   position: fixed;
   top: 90px;
-  left: -140px;
+  left: 50px
+  transform: translateX(-50%);
   background: rgba(28, 6, 95, 0.372);
   margin-left: 375px;
   margin-top: 28px;
   padding: 20px;
   width: 40%;
-  height: 600px;
+  height: 60px;
   display: none;
   z-index: 999;
   border-radius: 25px 25px 25px 25px;
@@ -276,12 +279,12 @@ html, body{
 #Pathologist-panel {
   position: fixed;
   top: 90px;
-  left: -150px;
+  left: 50%;
   margin-left: 385px;
   background: rgba(28, 6, 95, 0.372);
   padding: 20px;
   border-radius: 1px;
-  width: 40%;
+  width: 60%;
   height: 600px;
   display: none;
   z-index: 999;
@@ -376,12 +379,13 @@ html, body{
 #Therapist-sub-panel{
   position: fixed;
   top: 90px;
-  left: -150px;
+  left: 50%;
+  transform: translateX(-50%);
   margin-left: 385px;
  background: rgba(28, 6, 95, 0.372);
   padding: 20px;
   border-radius: 1px;
-  width: 40%;
+  width: 60%;
   height: 600px;
   display: none;
   z-index: 999;
@@ -530,7 +534,8 @@ html, body{
     z-index: 20;
     margin-top: 0px;
     padding: 40px;
-    height: 950px;
+    min height: 950vh;
+    height:auto;
     width: 100.8%;
     background-color:rgb(91,0,177,0.2);
     padding: 60px 50 px;
@@ -565,7 +570,8 @@ html, body{
     position: relative;
     z-index: 20;
     padding: 20px;
-    height: 950px;
+    min-height: 1000vh;
+    height: auto;
     margin-left: 0px;
     margin-top: 2PX;
     width: 100%;
@@ -577,8 +583,8 @@ html, body{
 .panel3 img{
     width: 150px;
     display: block;
-    margin-top: -160px;
-    margin-left: 1200px;
+    float: right;
+    margin: 20px;
     border-radius: 50px;
     al
 }
@@ -602,7 +608,8 @@ html, body{
 .panel4 {
     position: relative;
     padding: 20px;
-    height: 950px;
+    min-height: 1000vh;
+    height: auto;
     width: 100%;
     padding: 60px;
     z-index: 20;
@@ -613,8 +620,8 @@ html, body{
 .panel4 img{
   width: 150px;
     display: block;
-    margin-top: -190px;
-    margin-left: 900px;
+    float: right;
+    width: 20px ;
     border-radius: 50px;
 }
 
@@ -727,11 +734,4 @@ html, body{
     display: block;
   }
 }
-
-
-
-
-
-
-
 
