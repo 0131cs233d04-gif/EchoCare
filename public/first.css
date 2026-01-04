@@ -180,6 +180,10 @@ input[type="text"] {
     margin: 20px;
     text-align: center;
   }
+    .pa-im{
+    text-align: center;
+    margin-top: 20px;
+  }
 
   .panel {
     position: fixed;
@@ -249,6 +253,7 @@ input[type="text"] {
   }
 
 }
+
 
 
 
