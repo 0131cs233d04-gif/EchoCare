@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -10,11 +9,12 @@ html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+/* ================= HERO SECTION ================= */
 .pa {
   position: static;
   width: 100%;
   height: 100vh;
+  z-index: 1;
 }
 
 .pa-video {
@@ -23,29 +23,32 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
+
 }
 
 .pa-im {
-  margin-top: 25px;
-  margin-left: 40px;  
+  position: sticky;
+  margin-top: 50px;
+  z-index: 10;
+ 
 }
 
- .pa-im img {
-  width: 260px;        
-  max-width: 100%;
-  height: auto;
+.pa-im img {
+  width: 860px;        /* 👈 pehle 160–180 tha, yeh ideal hai */
+  height: 500px;
 }
 
 .pa-text {
-  position: absolute;
+  position: fixed;
   top: 20%;
-  right: 8%;
+  right: 10px;
   text-align: center;
+  z-index: 20;
 }
 
 .pa h1 {
-  font-size: clamp(32px, 6vw, 72px);
+  font-size: clamp(42px, 6vw, 92px);
   color: rgb(2, 6, 55);
   font-style: italic;
   margin: 0;
@@ -58,7 +61,7 @@ html, body {
   margin-top: 10px;
 }
 
-
+/* ================= BOTTOM PANEL ================= */
 .panel {
   position: fixed;
   bottom: 0;
@@ -87,7 +90,7 @@ padding-top: 120px;
   cursor: pointer;
 }
 
-
+/* ================= POPUP PANELS ================= */
 .hidden-panel,
 #Audiologist-panel,
 #Pathologist-panel,
@@ -101,14 +104,14 @@ padding-top: 120px;
   overflow-y: auto;
   display: none;
   padding: 25px;
-
-
+  
+  /* 🔥 IMPORTANT */
   background: rgba(28, 6, 95, 0.95);
   backdrop-filter: blur(6px);
 
   color: #fff;
   border-radius: 20px;
-  z-index: 9999;  
+  z-index: 9999;   /* ⬅️ video se hamesha upar */
 }
 
 .close-btn {
@@ -122,7 +125,7 @@ padding-top: 120px;
   cursor: pointer;
 }
 
-
+/* ================= FORM ================= */
 input[type="text"] {
   width: 100%;
   padding: 8px;
@@ -146,18 +149,21 @@ input[type="text"] {
   cursor: pointer;
 }
 
-
+/* ================= CONTENT SECTIONS ================= */
 .panel2,
 .panel3,
 .panel4 {
+  position: relative;
   padding: 40px;
-  min-height: auto;
-  background: rgba(91, 0, 177, 0.2);
+  z-index: 300;
+  min-height: 600px;
+  background: rgba(91, 0, 177, 0);
 }
 
 .panel2 h2,
 .panel3 h2,
 .panel4 h3 {
+
   font-size: 48px;
   margin-bottom: 20px;
 }
@@ -170,7 +176,7 @@ input[type="text"] {
   border-radius: 50%;
 }
 
-
+/* ================= MOBILE FIX ================= */
 @media (max-width: 768px) {
 
   .pa {
@@ -259,7 +265,6 @@ input[type="text"] {
   }
 
 }
-
 
 
 
