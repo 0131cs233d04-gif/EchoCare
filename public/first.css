@@ -27,8 +27,12 @@ html, body {
 }
 
   .pa-im{
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+  }
+  .pa-im img{
+    width: 300px;
+    height: auto;
   }
 
 .pa-text {
@@ -253,6 +257,7 @@ input[type="text"] {
   }
 
 }
+
 
 
 
