@@ -4,7 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ECHO CARE</title>
         <link rel="stylesheet" href="/first.css">
-    
     <body>
 
 
@@ -17,8 +16,8 @@
         <div class="pa-text">
         <h1>ECHO CARE</h1>                                                                                <!----css---3--->
         <p><strong>When sound meets care, it becomes therapy.</strong></p>
-            <div class="pa-im">
-        <img src="/logo.png" alt="img"></div>   
+        <div class="pa-im">
+        <img src="/logo.png" alt="img"></div>
         </div>                                                 <!----css---4--->
         </div>
 
@@ -26,12 +25,15 @@
 
         <div class="panel">                                                                               <!----css---5--->
         <div class="button-group">                                                                        <!----css---6--->
-        <button class="btn" onmouseover="showMainpanel('Specialist')">SPECIALIST</button>
-        <button class="btn" onmouseover="showMainpanel('Therapist')">THERAPIST</button>
+        <button class="btn" onclick="showMainpanel('Specialist')">SPECIALIST</button>
+        <button class="btn" onclick="showMainpanel('Therapist')">THERAPIST</button>
         </div>
         <div class="panelA">
+        <h1>Book Appointment</h1>
         <h2><strong>Hearing Aids</strong>  don't just amplify sound - they Amplify Life</h2>
         <p><strong>Hearing aids are not a sign of weakness - they're a symbol of strength and self care</strong></p>
+        
+
         </div>
         </div>
 
@@ -39,12 +41,12 @@
 
 
     <div id="Specialist-panel" class="hidden-panel">
-    <button class="close-btn" onclick="closepanel()">X</button>
+    <button type="button" class="close-btn" onclick="closepanel()">Cancel</button>
     <h2>Specialist</h2>
 
             <div class= "specialist-option">
-                <button class="btn1" onmouseover="showSubpanel('Audiologist')">Audiologist</button>
-                <button class="btn1" onmouseover="showSubpanel('Pathologist')">Speech & language Pathalogist</button>
+                <button class="btn1" onclick="showSubpanel('Audiologist-panel')">Audiologist</button>
+                <button class="btn1" onclick="showSubpanel('Pathologist-panel')">Speech & language Pathalogist</button>
             </div>
             </div>
 
@@ -52,78 +54,181 @@
 
 
 
-             <div id="Audiologist-panel" class="hidden-panel">
-                <button class="close-btn" onclick="closepanel()">x</button>
-                <h3>Audiologist</h3>
-                <h4>Book Appointment</h4>
-
-                <form action="/save-excel" method="post">
-                <input type="hidden" name="department" value="Audiologist">
-                <p>
-                    <label>Patient Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="Name" required></label>
-                </p>
-                <p>
-                    <label>Phone Number :&nbsp;&nbsp;<input type="text" name="phonenum" id="phonenum" required pattern="^\d{10}$" title="phone number of form (xxx) xxx-xxxx required."></label>
-                </p>
-                <p class="age-input">
-                    <label>Age :&nbsp;&nbsp;<input type="text" name="age" id="Age" required></label>
-                </p>
-                <p class="gen">
-                    <label>Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" list="gender"></label>
-                </p>
-                <datalist id="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Others</option>
-                </datalist>
-                <p class="addr"><label>address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="Address" required></label></p>
-                <p class="compl"><label>complain :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="complain" id="Complain" optional></label></p>
-                <p class="buttons">
-                    <button type="submit">submit</button>
-                    <button type="reset">Cancel</button>
-                </p>
-                <button type="submit">Submit</button>
-                </form>
-            </div>
 
 
+<div id="Audiologist-panel" class="hidden-panel">
+  <button class="close-btn" onclick="closepanel()">✖</button>
+
+  <h2 class="form-title">Book Audiologist Appointment</h2>
+  <p class="form-subtitle">
+    Hearing test, consultation & diagnosis
+  </p>
+  <form class="appointment-form" action="/save-excel" method="POST">
+
+    <input type="hidden" name="department" value="Speech and Language Pathologist">
+
+    <div class="form-group">
+      <label>Patient Name</label>
+      <input type="text" name="name" placeholder="Enter full name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="tel"
+             name="phonenum"
+             placeholder="10 digit mobile number"
+             pattern="[0-9]{10}"
+             required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="age" placeholder="Age" required>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" name="address" placeholder="Enter address" required>
+    </div>
+
+    <div class="form-group">
+      <label>Problem / Complaint</label>
+      <textarea name="complain"
+                placeholder="Speech delay, stammering, voice issue, etc."></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Preferred Date</label>
+        <input type="date" name="date">
+      </div>
+
+      <div class="form-group">
+        <label>Time Slot</label>
+        <select name="time">
+          <option>Morning (9–12)</option>
+          <option>Afternoon (12–4)</option>
+          <option>Evening (4–8)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-btn">Book Appointment</button>
+      <button type="reset" class="cancel-btn">Cancel</button>
+    </div>
+
+  </form>
+</div>
 
 
-            <div id="Pathologist-panel" class="hidden-panel">
-                <button class="close-btn" onclick="closepanel()">x</button>
-                <h3>Speech and Language Pathologist</h3>
-                <h4>Book Appointment</h4>
-                <form action="/save-excel" method="POST">
-                    <input type="hidden" name="department" value="Speech and Language Pathologist">
-                <p><label>Patient Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="Name" required></label></p>
-                <p><label>Phone Number :&nbsp;&nbsp;<input type="text" name="phonenum" id="phonenum" required pattern="^\d{10}$" title="phone number of form (xxx) xxx-xxxx required."></label></p>
-                <p class="age"><label>Age :&nbsp;&nbsp;<input type="text" name="age" id="age" required></label></p>
-                <p class="gen-input"><label>Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" list="gender"></label></p>
-                <datalist id="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Others</option>
-                </datalist>
-                <p class="addr-input"><label>Adderess :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="Address" required></label></p>
-                <p class="compl-input"><label>Complain :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="complain" id="Complain" optional></label></p>
-                <p class="buttons-input">
-                    <button type="submit">submit</button>
-                    <button type="reset">Cancel</button>
-                </p>
-                <button type="submit">Submit</button>
-                </form>
-            </div>
+
+
+
+
+
+
+
+
+     <div id="Pathologist-panel" class="hidden-panel">
+  <button class="close-btn" onclick="closepanel()">✖</button>
+
+  <h2 class="form-title">Speech & Language Pathologist</h2>
+  <p class="form-subtitle">Speech, language & communication therapy</p>
+
+  <form class="appointment-form" action="/save-excel" method="POST">
+
+    <input type="hidden" name="department" value="Speech and Language Pathologist">
+
+    <div class="form-group">
+      <label>Patient Name</label>
+      <input type="text" name="name" placeholder="Enter full name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="tel"
+             name="phonenum"
+             placeholder="10 digit mobile number"
+             pattern="[0-9]{10}"
+             required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="age" placeholder="Age" required>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" name="address" placeholder="Enter address" required>
+    </div>
+
+    <div class="form-group">
+      <label>Problem / Complaint</label>
+      <textarea name="complain"
+                placeholder="Speech delay, stammering, voice issue, etc."></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Preferred Date</label>
+        <input type="date" name="date">
+      </div>
+
+      <div class="form-group">
+        <label>Time Slot</label>
+        <select name="time">
+          <option>Morning (9–12)</option>
+          <option>Afternoon (12–4)</option>
+          <option>Evening (4–8)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-btn">Book Appointment</button>
+      <button type="reset" class="cancel-btn">Cancel</button>
+    </div>
+
+  </form>
+</div>
+
 
 
 
 
 
             <div id="Therapist-panel" class="hidden-panel">
-            <button class="close-btn" onmouseover="closepanel()">X</button>
+            <button class="close-btn" onclick="closepanel()">X</button>
             <h2>THERAPIST PANEL</h2>
 
             <div id="Therapist-option">
-                <button class="btn2" onmouseover="showSubpanel('Therapist-sub')">Occupational Therapy</button>
+            <button class="btn2" onclick="showSubpanel('Therapist-sub-panel')">Occupational Therapy</button>
             </div>
             <p>THIS PANEL CONTAINS INFORMATION ABOUT THERAPIST.</p>
             </div>
@@ -133,30 +238,91 @@
 
 
 
-            <div id="Therapist-sub-panel" class="hidden-panel">
-            <h3>Occupational Therapy</h3>
-            <h4>Book Appointment</h4>
-            <form action="/save-excel" method="POST">
-                <input type="hidden" name="department" value="Occupational Therapy">
-                <p><label>Patient Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="Name" required></label></p>
-                <p><label>Phone Number :&nbsp;&nbsp;<input type="text" name="phonenum" id="phonenum" required pattern="^\d{10}$" title="phone number of form (xxx) xxx-xxxx required."></label></p>
-                <p class="age-in"><label>Age :&nbsp;&nbsp;<input type="text" name="age" id="age" required></label></p>
-                <p class="gen-in"><label>Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" list="gender"></label></p>
-                <datalist id="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Others</option>
-                </datalist>
-                <p class="addr1"><label>Adderess :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="Address" required></label></p>
-                <p class="comple"><label>Complain :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="complain" id="Complain" optional></label></p>
-                <p class="buttons-in">
-                    <button type="submit">submit</button>
-                    <button type="reset">Cancel</button>
-                </p>
-                <button type="submit">Submit</button>
-                </form>
-            <button onclick="closepanel()">close</button>
-            </div>
+<div id="Therapist-sub-panel" class="hidden-panel">
+
+  <button class="close-btn" onclick="closepanel()">✖</button>
+
+  <h2 class="form-title">Occupational Therapy</h2>
+  <p class="form-subtitle">
+    Daily living skills, motor skills & rehabilitation therapy
+  </p>
+
+  <form class="appointment-form" action="/save-excel" method="POST">
+
+    <input type="hidden" name="department" value="Occupational Therapy">
+
+    <div class="form-group">
+      <label>Patient Name</label>
+      <input type="text" name="name" placeholder="Enter full name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input
+        type="tel"
+        name="phonenum"
+        placeholder="10 digit mobile number"
+        pattern="[0-9]{10}"
+        required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="age" placeholder="Age" required>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" name="address" placeholder="Enter address" required>
+    </div>
+
+    <div class="form-group">
+      <label>Problem / Complaint</label>
+      <textarea
+        name="complain"
+        placeholder="Motor difficulty, coordination problem, daily activity issues, etc."></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Preferred Date</label>
+        <input type="date" name="date">
+      </div>
+
+      <div class="form-group">
+        <label>Time Slot</label>
+        <select name="time">
+          <option>Morning (9–12)</option>
+          <option>Afternoon (12–4)</option>
+          <option>Evening (4–8)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-btn">
+        Book Appointment
+      </button>
+      <button type="reset" class="cancel-btn">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</div>
+
 
 
 
@@ -217,6 +383,3 @@
         </div>
     </body>
 </html>
-
-
-
