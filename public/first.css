@@ -1,286 +1,635 @@
-* {
-  box-sizing: border-box;
+
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+.pa{    /*----1--- panel banaye jisme video store hua--*/
+    position: relative;
+    width: 105%;
+    height: 100vh;
+   
 }
-
-/* ================= HERO SECTION ================= */
-.pa {
-  position: static;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-}
-
-.pa-video {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-
-}
-
-.pa-im {
-  position: sticky;
-  margin-top: 50px;
-  z-index: 10;
- 
-}
-
-.pa-im img {
-  width: 860px;        /* 👈 pehle 160–180 tha, yeh ideal hai */
-  height: 500px;
-}
-
-.pa-text {
-  position: fixed;
-  top: 20%;
-  right: 10px;
-  text-align: center;
-  z-index: 20;
-}
-
-.pa h1 {
-  font-size: clamp(42px, 6vw, 92px);
-  color: rgb(2, 6, 55);
-  font-style: italic;
-  margin: 0;
-}
-
-.pa p {
-  font-size: 20px;
-  color: rgb(13, 5, 123);
-  font-style: italic;
-  margin-top: 10px;
-}
-
-/* ================= BOTTOM PANEL ================= */
-.panel {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background: rgba(61, 226, 220, 0.7);
-  z-index: 1000;
-}
-body{
-padding-top: 120px;
-}
-
-.button-group {
-  display: flex;
-  gap: 20px;
-}
-
-.btn, .btn1, .btn2 {
-  padding: 14px 22px;
-  font-size: 18px;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-/* ================= POPUP PANELS ================= */
-.hidden-panel,
-#Audiologist-panel,
-#Pathologist-panel,
-#Therapist-sub-panel {
-  position: fixed;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  max-height: 80vh;
-  overflow-y: auto;
-  display: none;
-  padding: 25px;
-  
-  /* 🔥 IMPORTANT */
-  background: rgba(28, 6, 95, 0.95);
-  backdrop-filter: blur(6px);
-
-  color: #fff;
-  border-radius: 20px;
-  z-index: 9999;   /* ⬅️ video se hamesha upar */
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: transparent;
-  color: red;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-}
-
-/* ================= FORM ================= */
-input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-.buttons,
-.buttons-input,
-.buttons-in {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.buttons button,
-.buttons-input button,
-.buttons-in button {
-  padding: 10px 18px;
-  margin: 5px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* ================= CONTENT SECTIONS ================= */
-.panel2,
-.panel3,
-.panel4 {
-  position: relative;
-  padding: 40px;
-  z-index: 300;
-  min-height: 600px;
-  background: rgba(91, 0, 177, 0);
-}
-
-.panel2 h2,
-.panel3 h2,
-.panel4 h3 {
-
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.panel3 img,
-.panel4 img {
-  width: 150px;
-  float: right;
-  margin: 20px;
-  border-radius: 50%;
-}
-
-/* ================= MOBILE FIX ================= */
-@media (max-width: 768px) {
-
-  .pa {
-    height: auto;
-  }
-
-  /*.pa-video {
-    display: none;
-  }*/
-
-  .pa-text {
-    position: static;
-    margin: 20px;
-    text-align: center;
-  }
-    .pa-im{
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .panel {
+.pa-video {    /*--------2----video ka size ---*/
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: auto;
-    width: 100%;
-    background: rgba(61, 226, 220, 0.7);
-    z-index: 2000;
-  }
-
-  .button-group {
-    flex-direction: column;
-  }
-
-  .hidden-panel,
-  #Audiologist-panel,
-  #Pathologist-panel,
-  #Therapist-sub-panel {
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 100%;
-    top: 0;
-    border-radius: 0;
-  }
-
-  .panel2,
-  .panel3,
-  .panel4 {
-    padding: 20px;
-  }
-
-  .panel2 h2,
-  .panel3 h2,
-  .panel4 h3 {
-    font-size: 26px;
-    text-align: center;
-  }
-
-  img {
-    float: none;
-    display: block;
-    margin: 20px auto;
-    width: 120px;
-  }
-}
-@media (max-width: 768px) {
-
-  .pa {
-    height: 100vh;
-  }
-
-  .pa-video {
-    object-fit: contains;
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: auto;
     object-fit: cover;
+     transform: translate(-50%, -50%) scale(1.2);
     z-index: -1;
-  }
+    pointer-events: none;
 
-  .pa-text {
-    position: relative;
-    margin-top: 20vh;
+}
+
+.pa-text{
+
+    position: fixed;     /* 🔥 dono ek saath fixed */
+    top: 100px;          /* vertical position */
+    right: 5vw;          /* responsive horizontal */
+    z-index: 50;
     text-align: center;
-    z-index: 5;
-  }
+}
+
+.pa h1{     /*--------3--phala heading---*/
+    text-align:center;
+    margin-top: 200px;
+    margin-left: 1140px;
+    z-index: 9;
+    color: rgb(2, 6, 55);
+    font-size: 75pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 350px;
+    font-style:italic;
+    max-width: 120%;
+    font-weight: bold;
+
+}
+.pa p{     /*---------4--phala heading ka  line---*/
+    text-align: center;
+    color: rgb(13, 5, 123);
+    font-size: 26px;
+    font-style: italic;
+    margin-top: -160px;
+    margin-left: 1170px;
+    z-index: 9;
+}
+.panel{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    margin-left: 0px;
+    height: 150px;
+    width :99%;
+    background-color: rgba(61, 226, 220, 0.466);
+   
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1000;
+}
+.panel .panelA h2{
+    padding-left: 8px;
+    margin: 0;
+    padding-bottom: 100px;
+    color:white
+}
+.panel .panelA p{
+    margin: 0;
+    color:wheat;
 
 }
 
 
+.panel .button-group{ 
+    position: absolute;  /*-----6---button group--------*/
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    bottom: 80px;
+    opacity: 0.70;
+}
+
+
+.panel .btn{
+    padding: 15px 30px;
+    font-size: 26px;
+    font-weight: bold;
+    background-color: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.774);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+.panel .btn:hover{
+    background-color: #0056b3;
+    color: white;
+
+}
+.hidden-panel{
+    position: fixed;
+    top:290px;
+    left: 10px;
+    display: none;
+    padding: 30px;
+    color: rgb(253, 253, 253);
+    background: rgba(28, 6, 95, 0.372);
+    margin: 20px auto;
+    margin-left: 10px;
+    margin-top: 28px;
+    width: 8%;
+    height: 380px;
+    border-radius: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 9999;
+     border-radius: 25px 25px 25px 25px;
+
+}
+.close-btn{
+    position: absolute;
+    top:10px;
+    right:20px;
+    background: transparent;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+}
 
 
 
+.specialist-option{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+    align-items:left;
+}
+
+
+.btn1{
+    width: 100%;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background: rgba(146, 200, 209, 0.11);
+    color: wheat;
+    border:2px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.btn1:hover{
+    background: rgba(0, 0, 0, 0.527);
+    transform: scale(1.05);
+}
+#Audiologist-panel {
+  position: fixed;
+  top: 90px;
+  left: -140px;
+  background: rgba(28, 6, 95, 0.372);
+  margin-left: 375px;
+  margin-top: 28px;
+  padding: 20px;
+  width: 40%;
+  height: 600px;
+  display: none;
+  z-index: 999;
+  border-radius: 25px 25px 25px 25px;
+
+}
+#Audiologist-panel h3{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(248, 248, 248);
+
+}
+#Audiologist-panel h4{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -30px;
+    color: rgb(255, 255, 255);
+}
+#Audiologist-panel p{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+
+
+}
+#Audiologist-panel input[type=text]{
+    width: 40%;
+    padding: 6px;
+    font-size:18px;
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: #ffffff3f;
+
+}
+.age-input{
+    margin-left: 500px;
+}
+.gen{
+    margin-top: -65px ;
+}
+.gen input{
+  width: 30% !important;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.addr{
+    margin: 0px;
+}
+.addr input{
+    width: 70% !important;
+}
+.compl{
+    margin: 0px;
+}
+.compl input{
+    width: 70% !important;
+    height: 60px;
+}
+.buttons{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #2a7f62; /* greenish */
+  color: white;
+  transition: 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #1e5f49;
+}
+
+.buttons button[type="reset"] {
+  background-color: #a93f3f; /* reddish */
+}
+
+.buttons button[type="reset"]:hover {
+  background-color: #872f2f;
+}
+
+#Pathologist-panel {
+  position: fixed;
+  top: 90px;
+  left: -150px;
+  margin-left: 385px;
+  background: rgba(28, 6, 95, 0.372);
+  padding: 20px;
+  border-radius: 1px;
+  width: 40%;
+  height: 600px;
+  display: none;
+  z-index: 999;
+  border-radius: 25px 25px 25px 25px;
+}
+#Pathologist-panel h3{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(248, 248, 248);
+
+}
+#Pathologist-panel h4{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -30px;
+    color: rgb(255, 255, 255);
+}
+#Pathologist-panel p{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+
+
+}
+#Pathologist-panel input[type=text]{
+    width: 40%;
+    padding: 6px;
+    font-size:18px;
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: #ffffff3f;
+
+}
+.age{
+    margin-left: 500px;
+}
+.gen-input{
+    margin-top: -65px ;
+}
+.gen-input input{
+  width: 30% !important;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.addr-input{
+    margin: 0px;
+}
+.addr-input input{
+    width: 70% !important;
+}
+.compl-input{
+    margin: 0px;
+}
+.compl-input input{
+    width: 70% !important;
+    height: 60px;
+}
+.buttons-input{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons-input button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #2a7f62; /* greenish */
+  color: white;
+  transition: 0.3s ease;
+}
+
+.buttons-input button:hover {
+  background-color: #1e5f49;
+}
+
+.buttons-input button[type="reset"] {
+  background-color: #a93f3f; /* reddish */
+}
+
+.buttons-input button[type="reset"]:hover {
+  background-color: #872f2f;
+}
+
+#Therapist-sub-panel{
+  position: fixed;
+  top: 90px;
+  left: -150px;
+  margin-left: 385px;
+ background: rgba(28, 6, 95, 0.372);
+  padding: 20px;
+  border-radius: 1px;
+  width: 40%;
+  height: 600px;
+  display: none;
+  z-index: 999;
+  border-radius: 25px 25px 25px 25px;
+
+}
+
+
+#Therapist-sub-panel h4{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -30px;
+    color: rgb(255, 255, 255);
+}
+#Therapist-sub-panel p{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+
+
+}
+#Therapist-sub-panel input[type=text]{
+    width: 40%;
+    padding: 6px;
+    font-size:18px;
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: #ffffff3f;
+
+}
+.age-in{
+    margin-left: 500px;
+}
+.gen-in{
+    margin-top: -65px ;
+}
+.gen-in input{
+  width: 30% !important;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.addr1{
+    margin: 0px;
+}
+.addr1 input{
+    width: 70% !important;
+}
+.comple{
+    margin: 0px;
+}
+.comple input{
+    width: 70% !important;
+    height: 60px;
+}
+.buttons-in{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons-in button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #2a7f62; /* greenish */
+  color: white;
+  transition: 0.3s ease;
+}
+
+.buttons-in button:hover {
+  background-color: #1e5f49;
+}
+
+.buttons-in button[type="reset"] {
+  background-color: #a93f3f; /* reddish */
+}
+
+.buttons-in button[type="reset"]:hover {
+  background-color: #872f2f;
+}
+.Therapist-option{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+    align-items: left;
+}
+.btn2{
+
+    width: 100%;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background: rgba(146, 200, 209, 0.11);
+    color: wheat;
+    border:2px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.btn2:hover{
+    background: rgba(241, 215, 215, 0.3);
+    transform: scale(1.05);
+}
+
+.Therapist-box{
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: rgba(220, 67, 67, 0.1);
+    color: white;
+    border:2px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.Therapist-box:hover{
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
 
 
 
+.panel h2{
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+.panel p{
+    text-align: right;
+    font-size: 12px;
+    color: white;
+}
+
+.panel2{
+    position: relative;
+    z-index: 20;
+    margin-top: 0px;
+    padding: 40px;
+    height: 950px;
+    width: 100.8%;
+    background-color:rgb(91,0,177,0.2);
+    padding: 60px 50 px;
+}
+
+
+.panel2 h2{
+    text-align: left;
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px;
+    font-size: 100px;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.panel2 li{
+    text-align: left;
+    color: offblack;
+    font-style:normal;
+    line-height: 15pt;
+    font-size: 20px;
+    font-style: normal;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.panel2 ul{
+    padding-top: 0px;
+
+}
+.panel3{
+    position: relative;
+    z-index: 20;
+    padding: 20px;
+    height: 950px;
+    margin-left: 0px;
+    margin-top: 2PX;
+    width: 100%;
+    background-color:rgb(91,0,177,0.2);
 
 
 
+}
+.panel3 img{
+    width: 150px;
+    display: block;
+    margin-top: -160px;
+    margin-left: 1200px;
+    border-radius: 50px;
+    al
+}
+.panel3 h2{
+    text-align:left;
+    color: black;
+    font-size: 80px;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.panel3 li{
+    text-align: left;
+    font-size: 22px;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: offblack;
+}
+
+.abbr{
+    
+}
+
+.panel4 {
+    position: relative;
+    padding: 20px;
+    height: 950px;
+    width: 100%;
+    padding: 60px;
+    z-index: 20;
+    background-color:rgb(91,0,177,0.2);
 
 
+}
+.panel4 img{
+  width: 150px;
+    display: block;
+    margin-top: -190px;
+    margin-left: 900px;
+    border-radius: 50px;
+}
 
-
-
-
+.panel4 h3{
+    text-align: left;
+    color: black;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 80px;
+}
+.panel4 li{
+    text-align: left;
+    font-size: 22px;
+    color: offblack;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 
