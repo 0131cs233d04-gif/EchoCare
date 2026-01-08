@@ -1,15 +1,14 @@
 const express = require("express");
+const fetch = require("node-fetch"); // ⚠️ very important for Render
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-/* ===== FORM DATA → GOOGLE SHEET ===== */
 app.post("/save-excel", async (req, res) => {
-
   const {
     name,
     phonenum,
@@ -27,9 +26,7 @@ app.post("/save-excel", async (req, res) => {
       "https://script.google.com/a/macros/jnctbhopal.ac.in/s/AKfycbxJMHBaWmiYsQIdBD9sWSe8Rd3mK-KnvQBgcf9zwVFzwPdIe7AJMf00UbmCNcRYlja8/exec",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: name || "",
           phone: phonenum || "",
@@ -44,9 +41,7 @@ app.post("/save-excel", async (req, res) => {
       }
     );
 
-    if (!response.ok) {
-      throw new Error("Google Script error");
-    }
+    if (!response.ok) throw new Error("Google Script error");
 
     res.send("✅ Appointment successfully booked");
 
@@ -57,7 +52,5 @@ app.post("/save-excel", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log("🚀 Server running on port", PORT);
 });
-
-
