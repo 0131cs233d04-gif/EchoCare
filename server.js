@@ -41,11 +41,17 @@ app.post("/save-excel", async (req, res) => {
       }
     );
 
-    if (!response.ok) throw new Error("Google Script error");
+const text = await response.text();
+console.log("Google Script Response:", text);
 
-    res.send("✅ Appointment successfully booked");
+if (!response.ok || !text.includes("Success")) {
+  throw new Error(text);
+}
 
-  } catch (error) {
+res.send("✅ Appointment successfully booked");
+
+  
+    catch (error) {
     console.error("❌ Error:", error);
     res.status(500).send("❌ Appointment save failed");
   }
@@ -54,5 +60,6 @@ app.post("/save-excel", async (req, res) => {
 app.listen(PORT, () => {
   console.log("🚀 Server running on port", PORT);
 });
+
 
 
