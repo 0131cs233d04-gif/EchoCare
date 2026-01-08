@@ -12,34 +12,55 @@
         if (showThis) showThis.style.display = "block";
     }
 
-    function showMainpanel(panelID){
-        closepanel();
-        const panel = document.getElementById(panelID + "-panel");
-        if(panel) panel.style.display = "block";
-    }
+    /* ====== OPEN MAIN PANELS ====== */
+function showMainpanel(panelID) {
+  closepanel();
+  const panel = document.getElementById(panelID + "-panel");
+  if (panel) {
+    panel.style.display = "block";
+  }
+}
 
-    function closepanel(){
-        const panel = [
-            "Specialist-panel",
-            "Therapist-panel",
-            "Therapist-sub-panel",
-            "Audiologist-panel",
-            "Pathologist-panel"
-        ];
-        panel.forEach(id => {
-            const e1 = document.getElementById(id);
-            if(e1) e1.style.display = "none";
-        });
-    }
+/* ====== OPEN SUB PANELS ====== */
+function showSubpanel(panelID) {
+  closepanel();
+  const panel = document.getElementById(panelID); // 🔥 direct ID
+  if (panel) {
+    panel.style.display = "block";
+  }
+}
 
-    document.addEventListener("click", function(e){
-        const isPanel = e.target.closest(".hidden-panel");
-        const isButton = e.target.closest(".btn") || e.target.closest(".btn1");
+/* ====== CLOSE ALL PANELS ====== */
+function closepanel() {
+  document.querySelectorAll(".hidden-panel").forEach(p => {
+    p.style.display = "none";
+  });
+}
 
-        if (!isPanel && !isButton){
-            closepanel();
-        }
-    });
+/* ====== CLICK OUTSIDE TO CLOSE (SAFE) ====== */
+document.addEventListener("click", function (e) {
+  const isPanel = e.target.closest(".hidden-panel");
+  const isButton =
+    e.target.closest(".btn") ||
+    e.target.closest(".btn1") ||
+    e.target.closest(".btn2") ||
+    e.target.closest(".close-btn") ||
+    e.target.closest(".cancel-btn");
+
+  if (!isPanel && !isButton) {
+    closepanel();
+  }
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
