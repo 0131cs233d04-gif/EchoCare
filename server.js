@@ -1,5 +1,5 @@
 const express = require("express");
-const fetch = require("node-fetch"); // ⚠️ very important for Render
+const fetch = require("node-fetch");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,7 +26,9 @@ app.post("/save-excel", async (req, res) => {
       "https://script.google.com/macros/s/AKfycbzPgm6W5QhY8gNB2ffQMQneGYtz9L9-rd7MT6Evo6FdDrAybG0gjz9UBQZ6PCGePWg/exec",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           name: name || "",
           phone: phonenum || "",
@@ -41,26 +43,21 @@ app.post("/save-excel", async (req, res) => {
       }
     );
 
-const text = await response.text();
-console.log("Google Script Response:", text);
+    const text = await response.text();
+    console.log("Google Script Response:", text);
 
-if (!response.ok || !text.includes("Success")) {
-  throw new Error(text);
-}
+    if (!response.ok || !text.includes("Success")) {
+      throw new Error(text);
+    }
 
-res.send("✅ Appointment successfully booked");
+    return res.send("✅ Appointment successfully booked");
 
-  
-    catch (error) {
+  } catch (error) {
     console.error("❌ Error:", error);
-    res.status(500).send("❌ Appointment save failed");
+    return res.status(500).send("❌ Appointment save failed");
   }
 });
 
 app.listen(PORT, () => {
   console.log("🚀 Server running on port", PORT);
 });
-
-
-
-
