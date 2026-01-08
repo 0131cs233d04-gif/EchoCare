@@ -24,7 +24,7 @@ app.post("/save-excel", async (req, res) => {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxh5UX9VyUoMfArPE6wZMro2lsZcaSlTLbdOj_vjx3KE4zFFWJloAs92lOBy8uaN-8u/exec",
+      "https://script.google.com/a/macros/jnctbhopal.ac.in/s/AKfycbxJMHBaWmiYsQIdBD9sWSe8Rd3mK-KnvQBgcf9zwVFzwPdIe7AJMf00UbmCNcRYlja8/exec",
       {
         method: "POST",
         headers: {
@@ -59,4 +59,5 @@ app.post("/save-excel", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
