@@ -13,21 +13,18 @@
     }
 
     /* ====== OPEN MAIN PANELS ====== */
+/* ====== OPEN MAIN PANELS ====== */
 function showMainpanel(panelID) {
   closepanel();
   const panel = document.getElementById(panelID + "-panel");
-  if (panel) {
-    panel.style.display = "block";
-  }
+  if (panel) panel.style.display = "block";
 }
 
 /* ====== OPEN SUB PANELS ====== */
 function showSubpanel(panelID) {
   closepanel();
-  const panel = document.getElementById(panelID); // 🔥 direct ID
-  if (panel) {
-    panel.style.display = "block";
-  }
+  const panel = document.getElementById(panelID);
+  if (panel) panel.style.display = "block";
 }
 
 /* ====== CLOSE ALL PANELS ====== */
@@ -37,7 +34,7 @@ function closepanel() {
   });
 }
 
-/* ====== CLICK OUTSIDE TO CLOSE (SAFE) ====== */
+/* ====== CLICK OUTSIDE TO CLOSE ====== */
 document.addEventListener("click", function (e) {
   const isPanel = e.target.closest(".hidden-panel");
   const isButton =
@@ -51,6 +48,8 @@ document.addEventListener("click", function (e) {
     closepanel();
   }
 });
+
+
 
 
 
